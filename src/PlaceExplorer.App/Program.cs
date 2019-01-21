@@ -33,17 +33,17 @@ namespace PlaceExplorer.App
             string filepath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\" + Console.ReadLine() + ".xlsx";
             if (File.Exists(filepath))
             {
-                Console.WriteLine("该文件已存在，请换名字");
-                throw new Exception("该文件已存在，请换名字");
+                Console.WriteLine("File exists already, change file name");
+                throw new Exception("File exists already, change file name");
             }
 
             Console.WriteLine("\n=== ATTENTION : The API returns 20 results per call, Google allows only 45 calls per day===");
             Console.WriteLine("API calls number : ");
-            int nb = Int32.Parse(Console.ReadLine());
+            int nb = int.Parse(Console.ReadLine());
             if (nb > 45)
             {
-                Console.WriteLine("眼瞎了吗？");
-                throw new Exception("眼瞎了吗？");
+                Console.WriteLine("More than 45 calls required.");
+                throw new Exception("More than 45 calls required.");
             }
 
             var places = new List<PlaceDetail>();

@@ -9,15 +9,17 @@ namespace PlaceExplorer.Client
     public class GooglePlacesClient : IGooglePlacesClient
     {
         private HttpClient _client;
-        private string _query;
-        private string _apiKey;
+        private readonly string _query;
+        private readonly string _apiKey;
 
         public string Request { get; }
 
         public GooglePlacesClient(string apiKey, string latitude, string longitude, string radius, string type, string name = null, string language = null)
         {
-            _client = new HttpClient();
-            _client.BaseAddress = new Uri("https://maps.googleapis.com");
+            _client = new HttpClient
+            {
+                BaseAddress = new Uri("https://maps.googleapis.com")
+            };
 
             _query = QueryGenerator.NearbySearchQuery(apiKey, latitude, longitude, radius, type, name, language);
             _apiKey = apiKey;

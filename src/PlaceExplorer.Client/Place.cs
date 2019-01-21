@@ -8,8 +8,8 @@
         public string Name { get; set; }
         public string Vicinity { get; set; }
         public Geometry Geometry { get; set; }
-        public OpeningHour Opening_hours { get; set; }
-        public double Rating { get; set; }
+        //public OpeningHour Opening_hours { get; set; }
+        //public double Rating { get; set; }
         public string[] Types { get; set; }
     }
 }
